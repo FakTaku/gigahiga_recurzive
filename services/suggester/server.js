@@ -27,63 +27,70 @@ const browserReserved = {
   mac: ['meta+w', 'meta+t', 'meta+n', 'meta+shift+n', 'meta+shift+t', 'meta+shift+w', 'meta+r', 'meta+l', 'meta+left', 'meta+right', 'meta+tab', 'meta+shift+tab', 'meta+shift+i', 'meta+shift+c', 'meta+shift+j', 'meta+u', 'meta+s', 'meta+p', 'meta+a', 'meta+c', 'meta+v', 'meta+x', 'meta+z', 'meta+shift+z', 'meta+f', 'meta+h', 'meta+g', 'meta+d', 'meta+shift+d', 'meta+shift+o', 'meta+shift+p', 'meta+shift+s', 'meta+shift+u']
 };
 
-function createLLMPrompt(websiteUrl, elements) {
+function createLLMPrompt(websiteUrl, elements, nativeShortcuts = []) {
   const domain = new URL(websiteUrl).hostname;
-  const elementsDesc = elements.slice(0, 20).map(el => // Limit to first 20 elements
-    `- ${el.tag}${el.role ? ` (${el.role})` : ''}: "${el.label || 'unlabeled'}"${el.textNearby ? ` [nearby: "${el.textNearby.slice(0, 50)}..."]` : ''}`
+  const elementsDesc = elements.slice(0, 50).map(el => // Limit to first 50 elements for better coverage
+    `- ${el.tag}${el.role ? ` (${el.role})` : ''}: "${el.label || 'unlabeled'}"${el.textNearby ? ` [nearby: "${el.textNearby.slice(0, 50)}..."]` : ''}${el.accessKey ? ` [accesskey: "${el.accessKey}"]` : ''}`
   ).join('\n');
 
-  return `You are an expert at analyzing websites and suggesting intuitive keyboard shortcuts. 
+  // Format native shortcuts for the prompt
+  const nativeShortcutsDesc = nativeShortcuts.length > 0 
+    ? `\n\nEXISTING NATIVE SHORTCUTS (DO NOT OVERRIDE THESE):\n${nativeShortcuts.map(s => 
+        `- ${s.type === 'accesskey' ? `Access key "${s.key}"` : `Event listener on ${s.source}`}`
+      ).join('\n')}`
+    : '\n\nEXISTING NATIVE SHORTCUTS: None detected';
 
-WEBSITE: ${domain} (${websiteUrl})
-
-ELEMENTS DETECTED:
-${elementsDesc}
-
-Your task: Suggest keyboard shortcuts for the most important actionable elements. Consider:
-
-1. **Website Context**: What type of app is this? (drawing tool, email, code editor, social media, etc.)
-2. **Element Purpose**: What does each element actually do?
-3. **User Workflow**: What would users want quick access to?
-4. **Shortcut Conventions**: Use familiar patterns (Ctrl+S for save, Ctrl+N for new, etc.)
-
-INTENT CATEGORIES to choose from:
-- nav.search, nav.home, nav.settings, nav.profile
-- compose.open, message.send, draft.save  
-- action.add, action.delete, action.edit, action.undo, action.redo
-- tool.select, tool.draw, tool.text, tool.image, tool.zoom
-- input.focus, palette.open
-
-SHORTCUT GUIDELINES:
-- Use Ctrl+ on Windows/Linux, Meta+ on Mac
-- Avoid: Ctrl+W, Ctrl+T, Ctrl+N, Ctrl+R, Ctrl+L (browser reserved)
-- Prefer: Ctrl+Shift+X, Alt+X, or single letters like '/', 'h', 'g'
-- For drawing tools: Use numbers 1-9, letters like 'v' (select), 't' (text)
-- Max 3 suggestions per response
-
-RESPOND with JSON only:
+     return `You are an expert UX designer specializing in keyboard shortcuts.
+ Your task: Suggest intuitive, conflict-free shortcuts for a given website.
+ 
+ ### WEBSITE CONTEXT
+ URL: ${websiteUrl}
+ Domain: ${domain}
+ 
+ ### DETECTED ELEMENTS (Top 20 prioritized)
+ ${elementsDesc}
+ 
+ ### EXISTING SHORTCUTS (Do NOT override)
+ ${nativeShortcutsDesc}
+ 
+ ### CONSTRAINTS
+ - Avoid browser-reserved keys: Ctrl+R, Ctrl+W, Ctrl+T, Ctrl+Tab, F5, etc.
+ - Avoid OS-reserved keys: Cmd+Q, Alt+F4, etc.
+ - Avoid overriding existing site shortcuts above.
+ - Use common UX patterns:
+     - Search → "/" (but check conflicts first)
+     - New item → Ctrl+N or Alt+N
+     - Save → Ctrl+S
+     - Compose → Alt+N
+     - Navigation → single letters (g for GitHub-style navigation)
+     - For design tools: v for select, t for text
+ - If a conflict exists, propose an alternative (e.g., Alt+Shift+X).
+ - Max 8 most useful actions based on user workflow.
+- Avoid duplicate suggestions for the same intent.
+ 
+ ### WHAT TO RETURN
+ JSON only, in this format:
 {
   "suggestions": [
     {
       "elementIndex": 0,
-      "intent": "tool.select", 
-      "keys": ["v", "1"],
-      "confidence": 0.9,
-      "reasoning": "Selection tool is primary tool in drawing apps"
+      "intent": "nav.search",
+      "keys": ["/", "Alt+S"],
+      "reasoning": "Search is primary; / is widely used."
     }
   ]
 }`;
 }
 
-async function getLLMSuggestions(websiteUrl, elements) {
-  const prompt = createLLMPrompt(websiteUrl, elements);
+async function getLLMSuggestions(websiteUrl, elements, nativeShortcuts = []) {
+  const prompt = createLLMPrompt(websiteUrl, elements, nativeShortcuts);
   
   // Try Gemini first (often faster and free)
   if (gemini && process.env.GEMINI_API_KEY) {
     try {
       console.log('Calling Gemini API...');
       const model = gemini.getGenerativeModel({ 
-        model: process.env.GEMINI_MODEL || 'gemini-1.5-flash' 
+        model: process.env.GEMINI_MODEL || 'gemini-2.5-pro' 
       });
       
       const result = await model.generateContent(prompt);
@@ -95,7 +102,6 @@ async function getLLMSuggestions(websiteUrl, elements) {
           elementId: elements[s.elementIndex]?.id,
           intent: s.intent,
           keys: s.keys || [],
-          confidence: s.confidence || 0.5,
           reasoning: s.reasoning,
           source: 'gemini'
         })).filter(s => s.elementId) || [];
@@ -128,7 +134,6 @@ async function getLLMSuggestions(websiteUrl, elements) {
         elementId: elements[s.elementIndex]?.id,
         intent: s.intent,
         keys: s.keys || [],
-        confidence: s.confidence || 0.5,
         reasoning: s.reasoning,
         source: 'openai'
       })).filter(s => s.elementId) || [];
@@ -145,98 +150,152 @@ async function getLLMSuggestions(websiteUrl, elements) {
   return null;
 }
 
-function getHeuristicSuggestions(elements) {
+function getHeuristicSuggestions(elements, nativeShortcuts = []) {
+  // Extract existing keys to avoid conflicts
+  const existingKeys = new Set();
+  const verifiedKeys = new Set(); // Keys we've verified work natively
+  
+  nativeShortcuts.forEach(shortcut => {
+    if (shortcut.key && shortcut.key !== 'unknown') {
+      existingKeys.add(shortcut.key.toLowerCase());
+      // Mark verified shortcuts separately
+      if (shortcut.verified === true || shortcut.type === 'native_shortcut') {
+        verifiedKeys.add(shortcut.key.toLowerCase());
+      }
+    }
+  });
+  
+  // Also check accesskey attributes on elements
+  elements.forEach(el => {
+    if (el.accessKey) {
+      existingKeys.add(el.accessKey.toLowerCase());
+    }
+  });
+
+  console.log(`[suggester] Avoiding ${existingKeys.size} existing keys:`, Array.from(existingKeys));
+  console.log(`[suggester] Verified native keys:`, Array.from(verifiedKeys));
+
   return elements.map((el) => {
     const label = (el.label || '').toLowerCase();
     const role = (el.role || '').toLowerCase();
     const tag = (el.tag || '').toLowerCase();
     let intent = 'unknown';
     let keys = [];
-    let confidence = 0.4;
 
+    
     // Search-related intents
     if (label.includes('search') || label.includes('jump to') || role === 'searchbox') { 
       intent = 'nav.search'; 
-      keys = ['/', 'Alt+S']; 
-      confidence = 0.9;
+      // Check if "/" is already used natively (especially if verified)
+      if (existingKeys.has('/') || verifiedKeys.has('/')) {
+        // Avoid "/" if detected as native shortcut
+        keys = ['Alt+S', 'Ctrl+Shift+F']; 
+        console.log(`[suggester] AVOIDING native "/" key for search element: ${label}`);
+      } else {
+        keys = ['/', 'Alt+S']; 
+        console.log(`[suggester] Using "/" key for search element: ${label} (no conflict detected)`);
+      }
     }
     // Navigation intents
     else if (label.includes('home') || label.includes('homepage')) { 
       intent = 'nav.home'; 
-      keys = ['Alt+H']; 
-      confidence = 0.8;
+      if (existingKeys.has('h')) {
+        keys = ['Alt+H', 'Ctrl+Shift+H']; 
+      } else {
+        keys = ['Alt+H', 'h']; 
+      }
     }
     else if (label.includes('profile') || label.includes('account')) { 
       intent = 'nav.profile'; 
-      keys = ['Alt+P']; 
-      confidence = 0.8;
+      if (existingKeys.has('p')) {
+        keys = ['Alt+P', 'Ctrl+Shift+P']; 
+      } else {
+        keys = ['Alt+P', 'p']; 
+      }
     }
     else if (label.includes('settings') || label.includes('preferences')) { 
       intent = 'nav.settings'; 
       keys = ['Ctrl+,', 'Meta+,']; 
-      confidence = 0.8;
     }
     // Action intents
     else if (label.includes('compose') || label.includes('new') || label.includes('create')) { 
       intent = 'compose.open'; 
-      keys = ['Alt+N']; 
-      confidence = 0.8;
+      if (existingKeys.has('n')) {
+        keys = ['Alt+N', 'Ctrl+Shift+N']; 
+      } else {
+        keys = ['Alt+N', 'n']; 
+      }
     }
     else if (label.includes('send') || label.includes('submit')) { 
       intent = 'message.send'; 
       keys = ['Ctrl+Enter', 'Meta+Enter']; 
-      confidence = 0.8;
     }
     else if (label.includes('save') || label.includes('store')) { 
       intent = 'draft.save'; 
       keys = ['Ctrl+S', 'Meta+S']; 
-      confidence = 0.8;
     }
     // Common actions
     else if (label.includes('undo')) { 
       intent = 'action.undo'; 
       keys = ['Ctrl+Z', 'Meta+Z']; 
-      confidence = 0.9;
     }
     else if (label.includes('redo')) { 
       intent = 'action.redo'; 
       keys = ['Ctrl+Y', 'Meta+Shift+Z']; 
-      confidence = 0.9;
     }
     // Drawing tools
     else if (label.includes('selection') || label.includes('select')) { 
       intent = 'tool.select'; 
-      keys = ['v', '1']; 
-      confidence = 0.8;
+      if (existingKeys.has('v')) {
+        keys = ['1', 'Ctrl+Shift+V']; 
+      } else {
+        keys = ['v', '1']; 
+      }
     }
     else if (label.includes('text') && tag === 'input') { 
       intent = 'tool.text'; 
-      keys = ['t', '8']; 
-      confidence = 0.8;
+      if (existingKeys.has('t')) {
+        keys = ['8', 'Ctrl+Shift+T']; 
+      } else {
+        keys = ['t', '8']; 
+      }
     }
     else if (label.includes('rectangle')) { 
       intent = 'tool.draw'; 
-      keys = ['r', '2']; 
-      confidence = 0.8;
+      if (existingKeys.has('r')) {
+        keys = ['2', 'Ctrl+Shift+R']; 
+      } else {
+        keys = ['r', '2']; 
+      }
     }
     else if (label.includes('hand') || label.includes('pan')) { 
       intent = 'tool.pan'; 
-      keys = ['h']; 
-      confidence = 0.8;
+      if (existingKeys.has('h')) {
+        keys = ['Ctrl+Shift+H', '9']; 
+      } else {
+        keys = ['h']; 
+      }
     }
 
-    return { elementId: el.id, intent, keys, confidence };
+    return { elementId: el.id, intent, keys };
   }).filter(s => s.intent !== 'unknown');
 }
 
-function filterBrowserReservedKeys(suggestions, platform = 'win') {
+function filterBrowserReservedKeys(suggestions, platform = 'win', nativeShortcuts = []) {
   const reservedKeys = browserReserved[platform] || [];
+  
+  // Also add native shortcuts to the reserved list
+  const nativeKeys = nativeShortcuts
+    .filter(s => s.key && s.key !== 'unknown')
+    .map(s => s.key.toLowerCase());
+  
+  const allReservedKeys = [...reservedKeys, ...nativeKeys];
   
   return suggestions.map(suggestion => {
     if (suggestion.keys && suggestion.keys.length > 0) {
       const safeKeys = suggestion.keys.filter(key => {
         const normalizedKey = key.toLowerCase().replace(/\s+/g, '');
-        return !reservedKeys.some(reserved => 
+        return !allReservedKeys.some(reserved => 
           reserved === normalizedKey || 
           reserved === normalizedKey.replace('ctrl+', 'meta+') ||
           reserved === normalizedKey.replace('meta+', 'ctrl+')
@@ -275,32 +334,46 @@ const server = http.createServer((req, res) => {
         return send(res, 400, { error: 'Invalid JSON' });
       }
       
-      const { elements = [], url: websiteUrl, platform = 'win' } = payload;
+      const { elements = [], url: websiteUrl, platform = 'win', nativeShortcuts = [] } = payload;
       
       if (!elements.length) {
         return send(res, 200, { suggestions: [] });
       }
 
       console.log(`Processing ${elements.length} elements for ${websiteUrl || 'unknown site'}`);
+      console.log(`Found ${nativeShortcuts.length} native shortcuts to respect`);
       
       let suggestions = [];
       
       // Try LLM first
-      if (openai && websiteUrl) {
-        suggestions = await getLLMSuggestions(websiteUrl, elements);
+      if ((openai || gemini) && websiteUrl) {
+        suggestions = await getLLMSuggestions(websiteUrl, elements, nativeShortcuts);
       }
       
       // Fall back to heuristics if LLM failed
       if (!suggestions || suggestions.length === 0) {
         console.log('Using fallback heuristics');
-        suggestions = getHeuristicSuggestions(elements);
+        suggestions = getHeuristicSuggestions(elements, nativeShortcuts);
       }
       
-      // Filter out browser-reserved shortcuts
-      const filteredSuggestions = filterBrowserReservedKeys(suggestions, platform);
+      // Filter out browser-reserved shortcuts AND native shortcuts
+      const filteredSuggestions = filterBrowserReservedKeys(suggestions, platform, nativeShortcuts);
       
-      console.log(`Returning ${filteredSuggestions.length} suggestions`);
-      return send(res, 200, { suggestions: filteredSuggestions });
+      // Deduplicate suggestions by intent and element
+      const deduplicatedSuggestions = filteredSuggestions.reduce((acc, current) => {
+        const existing = acc.find(s => s.intent === current.intent && s.elementId === current.elementId);
+        if (!existing) {
+          acc.push(current);
+        } else if (current.confidence && (!existing.confidence || current.confidence > existing.confidence)) {
+          // Replace with higher confidence suggestion
+          const index = acc.indexOf(existing);
+          acc[index] = current;
+        }
+        return acc;
+      }, []);
+      
+      console.log(`Returning ${deduplicatedSuggestions.length} suggestions (${filteredSuggestions.length - deduplicatedSuggestions.length} duplicates removed)`);
+      return send(res, 200, { suggestions: deduplicatedSuggestions });
     });
     return;
   }

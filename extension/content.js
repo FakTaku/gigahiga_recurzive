@@ -315,7 +315,7 @@
         
         const left = document.createElement('div');
         const title = document.createElement('div');
-        Object.assign(title, { textContent: suggestion.intent || 'Unknown Action' });
+        Object.assign(title, { textContent: intentTitle(suggestion.intent) || 'Unknown Action' });
         Object.assign(title.style, { fontWeight: '500', marginBottom: '2px' });
         
         const subtitle = document.createElement('div');
@@ -414,8 +414,24 @@
         // Force reload from storage to ensure consistency
         await loadArtifactAndOverrides();
         
+        // Force re-indexing to ensure new bindings are available
+        indexBindings();
+        
+        // Re-apply hotkey bindings so the new shortcut actually works
+        applyBindingsWithHotkeys();
+        
         console.log('[gigahiga] After reload - effectiveIndex size:', effectiveIndex.size);
         console.log('[gigahiga] After reload - overrides:', overrides);
+        
+        // Get updated commands list for debugging
+        const updatedCommands = [];
+        for (const [key, b] of effectiveIndex.entries()) {
+          const title = intentTitle(b.intent);
+          if (title) {
+            updatedCommands.push({ title, intent: b.intent, key, source: b.source });
+          }
+        }
+        console.log('[gigahiga] Available commands after acceptance:', updatedCommands);
         
         // Show success message
         btn.textContent = 'Accepted!';
@@ -434,11 +450,42 @@
         renderSuggestions();
         
         // Show message that it's now available in Commands tab
-        showGlobalMessage(`✅ "${intentTitle(suggestion.intent)}" shortcut (${suggestion.keys[0]}) is now active!`, 'success');
+        showGlobalMessage(`✅ Shortcut "${suggestion.keys[0]}" for "${intentTitle(suggestion.intent)}" is ready! Check Commands tab.`, 'success');
         
-        // Force refresh of Commands tab if it's currently shown
-        if (commandsContent.style.display !== 'none') {
-          render('');
+        // Force refresh of Commands tab regardless of which tab is shown
+        console.log('[gigahiga] Refreshing Commands tab with new binding');
+        render('');
+        
+        // If currently on Suggestions tab, briefly show user the Commands tab
+        if (suggestionsContent.style.display !== 'none') {
+          // Add a subtle notification to check Commands tab
+          setTimeout(() => {
+            const notification = document.createElement('div');
+            notification.textContent = '💡 Check the Commands tab to see your new shortcut!';
+            Object.assign(notification.style, {
+              padding: '8px',
+              margin: '8px 0',
+              background: '#e3f2fd',
+              color: '#1565c0',
+              border: '1px solid #bbdefb',
+              borderRadius: '4px',
+              fontSize: '12px',
+              textAlign: 'center',
+              cursor: 'pointer'
+            });
+            
+            notification.addEventListener('click', () => {
+              showTab('commands');
+              notification.remove();
+            });
+            
+            suggestionsList.insertBefore(notification, suggestionsList.firstChild);
+            
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+              if (notification.parentNode) notification.remove();
+            }, 8000);
+          }, 1000);
         }
         
       } catch (error) {
@@ -561,57 +608,57 @@
     switch (intent) {
       // Core palette and navigation
       case 'palette.open': return 'Open Command Palette';
-      case 'nav.search': return 'Search';
-      case 'nav.home': return 'Home';
-      case 'nav.profile': return 'Profile';
-      case 'nav.settings': return 'Settings';
+      case 'nav.search': return 'Go to Search';
+      case 'nav.home': return 'Go to Home';
+      case 'nav.profile': return 'Go to Profile';
+      case 'nav.settings': return 'Open Settings';
       
       // Composition and messaging
-      case 'compose.open': return 'Compose';
-      case 'message.send': return 'Send';
+      case 'compose.open': return 'Create New';
+      case 'message.send': return 'Send Message';
       case 'draft.save': return 'Save Draft';
       
       // GitHub/Development
-      case 'nav.pull_requests': return 'Pull Requests';
-      case 'nav.issues': return 'Issues';
-      case 'nav.repository': return 'Repository';
-      case 'nav.code': return 'Code';
+      case 'nav.pull_requests': return 'View Pull Requests';
+      case 'nav.issues': return 'View Issues';
+      case 'nav.repository': return 'Go to Repository';
+      case 'nav.code': return 'View Code';
       
       // Common actions
-      case 'action.add': return 'Add';
-      case 'action.delete': return 'Delete';
-      case 'action.edit': return 'Edit';
-      case 'action.undo': return 'Undo';
-      case 'action.redo': return 'Redo';
+      case 'action.add': return 'Add Item';
+      case 'action.delete': return 'Delete Item';
+      case 'action.edit': return 'Edit Item';
+      case 'action.undo': return 'Undo Last Action';
+      case 'action.redo': return 'Redo Last Action';
       
       // Drawing tools (for apps like Excalidraw)
-      case 'tool.select': return 'Selection Tool';
+      case 'tool.select': return 'Select Tool';
       case 'tool.draw': return 'Drawing Tool';
       case 'tool.text': return 'Text Tool';
-      case 'tool.image': return 'Image Tool';
+      case 'tool.image': return 'Insert Image';
       case 'tool.zoom': return 'Zoom Tool';
       case 'tool.pan': return 'Pan Tool';
       
       // Form inputs
-      case 'input.focus': return 'Focus Input';
+      case 'input.focus': return 'Focus Input Field';
       
       // Legacy/additional intents
-      case 'nav.homepage': return 'Homepage';
-      case 'nav.preferences': return 'Preferences';
-      case 'nav.account': return 'Account';
-      case 'nav.compose': return 'Compose';
-      case 'nav.new': return 'New';
-      case 'nav.create': return 'Create';
+      case 'nav.homepage': return 'Go to Homepage';
+      case 'nav.preferences': return 'Open Preferences';
+      case 'nav.account': return 'Go to Account';
+      case 'nav.compose': return 'Create New';
+      case 'nav.new': return 'Create New';
+      case 'nav.create': return 'Create Item';
       case 'nav.send': return 'Send';
-      case 'nav.submit': return 'Submit';
+      case 'nav.submit': return 'Submit Form';
       case 'nav.save': return 'Save';
-      case 'nav.store': return 'Store';
-      case 'nav.bug': return 'Bug Report';
-      case 'nav.pr': return 'Pull Request';
-      case 'nav.source': return 'Source Code';
-      case 'nav.plus': return 'Add New';
-      case 'nav.remove': return 'Remove';
-      case 'nav.modify': return 'Modify';
+      case 'nav.store': return 'Save to Storage';
+      case 'nav.bug': return 'Report Bug';
+      case 'nav.pr': return 'View Pull Request';
+      case 'nav.source': return 'View Source Code';
+      case 'nav.plus': return 'Add New Item';
+      case 'nav.remove': return 'Remove Item';
+      case 'nav.modify': return 'Edit Item';
       case 'nav.textbox': return 'Focus Text Input';
       
       // Smart fallback for any other intents

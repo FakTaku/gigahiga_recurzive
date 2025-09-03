@@ -4,7 +4,8 @@
       "elementId": "homepage",
       "intent": "nav.home",
       "keys": [
-        "Alt+H"
+        "Alt+H",
+        "h"
       ],
       "confidence": 0.8
     },
@@ -12,16 +13,17 @@
       "elementId": "search_or_jump_to…",
       "intent": "nav.search",
       "keys": [
-        "/",
-        "Alt+S"
+        "Alt+S",
+        "Ctrl+Shift+F"
       ],
-      "confidence": 0.9
+      "confidence": 0.7
     },
     {
-      "elementId": "site-wide_links_subscribe_to_our_developer_newsletter_get_t",
+      "elementId": "site-wide_links_subscribe_to_our_developer_newslet",
       "intent": "compose.open",
       "keys": [
-        "Alt+N"
+        "Alt+N",
+        "n"
       ],
       "confidence": 0.8
     },
@@ -29,7 +31,8 @@
       "elementId": "go_to_github_homepage",
       "intent": "nav.home",
       "keys": [
-        "Alt+H"
+        "Alt+H",
+        "h"
       ],
       "confidence": 0.8
     },
@@ -37,7 +40,8 @@
       "elementId": "newsroom",
       "intent": "compose.open",
       "keys": [
-        "Alt+N"
+        "Alt+N",
+        "n"
       ],
       "confidence": 0.8
     },

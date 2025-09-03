@@ -20,14 +20,16 @@ async function sendToSuggester(snapshot, appId) {
         appId,
         appCategory: 'development', // Default category
         platform: process.platform === 'darwin' ? 'mac' : 'win',
-        elements: snapshot.elements.map(el => ({
-          id: el.label?.toLowerCase().replace(/\s+/g, '_') || 'unknown',
+        elements: snapshot.elements.map((el, index) => ({
+          id: el.label?.toLowerCase().replace(/\s+/g, '_').slice(0, 50) || `unknown_${index}`,
           label: el.label,
           role: el.role,
           tag: el.tag,
           textNearby: el.textNearby,
-          actions: el.actions
+          actions: el.actions,
+          accessKey: el.accessKey
         })),
+        nativeShortcuts: snapshot.nativeShortcuts || [], // Pass discovered native shortcuts
         reserved: { win: ['Alt+Tab'], mac: ['Meta+Q'] }
       })
     });
@@ -105,17 +107,198 @@ async function extractFromFrame(frame) {
         const actions = [];
         if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') actions.push({ type: 'focus' });
         else actions.push({ type: 'click' });
+        
+        // Extract accesskey if present
+        const accessKey = el.getAttribute('accesskey');
+        
         items.push({
           selector: null,
           label, role,
           tag: el.tagName.toLowerCase(),
           actions,
-          textNearby: (el.closest('label')?.textContent || '').trim().slice(0, 120)
+          textNearby: (el.closest('label')?.textContent || '').trim().slice(0, 120),
+          accessKey: accessKey || null // Add accesskey to element data
         });
       } catch {}
     }
     return items;
   });
+}
+
+async function detectNativeShortcuts(page) {
+  console.log('[crawler] Detecting native shortcuts...');
+  
+  try {
+    const nativeShortcuts = [];
+    
+    // Extract accesskey attributes
+    const accessKeys = await page.evaluate(() => {
+      const keys = new Set();
+      const elementsWithAccessKey = document.querySelectorAll('[accesskey]');
+      elementsWithAccessKey.forEach(el => {
+        const key = el.getAttribute('accesskey');
+        if (key) {
+          keys.add(key.toLowerCase());
+        }
+      });
+      return Array.from(keys);
+    });
+    
+    accessKeys.forEach(key => {
+      nativeShortcuts.push({
+        type: 'accesskey',
+        key: key,
+        source: 'HTML attribute'
+      });
+    });
+    
+    // Site-specific shortcut detection
+    const url = page.url();
+    
+    // GitHub-specific shortcuts
+    if (url.includes('github.com')) {
+      console.log('[crawler] Detecting GitHub-specific shortcuts...');
+      
+      // Test if "/" triggers search
+      try {
+        // Focus on body first to ensure we're not in an input
+        await page.click('body');
+        await sleep(100);
+        
+        // Get current active element
+        const activeElementBefore = await page.evaluate(() => document.activeElement?.tagName || 'BODY');
+        
+        // Press "/" key
+        await page.keyboard.press('/');
+        await sleep(500); // Wait for potential focus change
+        
+        // Check if search input is now focused
+        const activeElementAfter = await page.evaluate(() => {
+          const active = document.activeElement;
+          if (!active) return 'NONE';
+          
+          // Check if it's a search input - GitHub's search has various indicators
+          const hasSearchIndicators = (
+            active.placeholder?.toLowerCase().includes('search') ||
+            active.getAttribute('aria-label')?.toLowerCase().includes('search') ||
+            (active.className && active.className.includes('search')) ||
+            (active.className && active.className.includes('QueryBuilder')) || // GitHub's search component - THIS IS THE KEY!
+            active.closest('.search-input-container') || // Search container
+            active.closest('[data-target="qbsearch-input.inputElement"]') || // GitHub search target
+            active.id?.includes('search') ||
+            active.name?.includes('search')
+          );
+          
+          const isSearchInput = active.type === 'text' && hasSearchIndicators;
+          
+          return {
+            tagName: active.tagName,
+            type: active.type,
+            placeholder: active.placeholder,
+            ariaLabel: active.getAttribute('aria-label'),
+            className: active.className,
+            id: active.id,
+            name: active.name,
+            isSearchInput,
+            hasSearchIndicators,
+            debug: {
+              hasQueryBuilder: active.className && active.className.includes('QueryBuilder'),
+              hasSearch: active.className && active.className.includes('search'),
+              isTextInput: active.type === 'text'
+            },
+            closest: active.closest('.search-input-container, [data-target*="search"]') ? 'found search container' : 'no search container'
+          };
+        });
+        
+        console.log('[crawler] GitHub "/" test - before:', activeElementBefore, 'after:', activeElementAfter);
+        
+        // If search input is focused, "/" is used natively
+        if (activeElementAfter.isSearchInput) {
+          nativeShortcuts.push({
+            type: 'native_shortcut',
+            key: '/',
+            source: 'GitHub search focus test',
+            verified: true
+          });
+          console.log('[crawler] Confirmed: GitHub uses "/" for search');
+        }
+        
+        // Clear the search if it was focused
+        if (activeElementAfter.isSearchInput) {
+          await page.keyboard.press('Escape');
+        }
+        
+      } catch (error) {
+        console.log('[crawler] GitHub "/" test failed:', error.message);
+      }
+      
+      // GitHub also commonly uses other shortcuts - add known ones
+      const githubShortcuts = [
+        { key: 'g', description: 'Go to shortcuts' },
+        { key: 'i', description: 'Issues shortcut' },
+        { key: 'p', description: 'Pull requests shortcut' },
+        { key: 't', description: 'File finder' },
+        { key: 'w', description: 'Branch/tag selector' },
+        { key: 's', description: 'Focus search' }
+      ];
+      
+      // Only add these if we detect GitHub has keyboard shortcuts enabled
+      const hasGitHubShortcuts = await page.evaluate(() => {
+        // Look for GitHub's shortcut hints or help
+        const shortcutElements = document.querySelectorAll('[data-hotkey], .js-hotkey, .hotkey');
+        return shortcutElements.length > 0;
+      });
+      
+      if (hasGitHubShortcuts) {
+        githubShortcuts.forEach(shortcut => {
+          nativeShortcuts.push({
+            type: 'known_github_shortcut',
+            key: shortcut.key,
+            source: `GitHub ${shortcut.description}`,
+            verified: false
+          });
+        });
+        console.log(`[crawler] Added ${githubShortcuts.length} known GitHub shortcuts`);
+      }
+    }
+    
+    // Add any detected event listeners (less specific but still useful)
+    const hasKeyListeners = await page.evaluate(() => {
+      // Check if there are any keydown listeners on document or body
+      const body = document.body;
+      const doc = document;
+      
+      // This is a heuristic - look for common signs of keyboard shortcuts
+      const scripts = Array.from(document.scripts);
+      const hasKeyboardJS = scripts.some(script => 
+        script.textContent && (
+          script.textContent.includes('keydown') ||
+          script.textContent.includes('keypress') ||
+          script.textContent.includes('addEventListener') ||
+          script.textContent.includes('hotkey') ||
+          script.textContent.includes('shortcut')
+        )
+      );
+      
+      return hasKeyboardJS;
+    });
+    
+    if (hasKeyListeners) {
+      nativeShortcuts.push({
+        type: 'event_listeners_detected',
+        key: 'unknown',
+        source: 'JavaScript keyboard event listeners detected',
+        verified: false
+      });
+    }
+    
+    console.log(`[crawler] Discovered ${nativeShortcuts.length} native shortcuts`);
+    return nativeShortcuts;
+    
+  } catch (error) {
+    console.error('[crawler] Error detecting native shortcuts:', error);
+    return [];
+  }
 }
 
 async function extractElements(page) {
@@ -173,7 +356,7 @@ async function run(targetUrl, outPath, opts = {}) {
     await page.waitForLoadState('networkidle', { timeout: 15_000 }).catch(() => {});
     await sleep(opts.waitMs || 2500);
 
-    // If we’re not authenticated for Gmail, guide first-time login
+    // If we're not authenticated for Gmail, guide first-time login
     const urlNow = page.url();
     const isGoogleAuth = /accounts\.google\.com/.test(urlNow);
     const isGmail = /mail\.google\.com/.test(targetUrl);
@@ -204,11 +387,15 @@ async function run(targetUrl, outPath, opts = {}) {
 
     console.log('[crawler] Extracting elements…');
     const elements = await extractElements(page);
+    
+    // Detect native shortcuts after elements are loaded
+    const nativeShortcuts = await detectNativeShortcuts(page);
 
     const snapshot = {
       url: targetUrl,
       route: page.url(),
       elements,
+      nativeShortcuts, // Add native shortcuts to snapshot
       capturedAt: new Date().toISOString()
     };
 
