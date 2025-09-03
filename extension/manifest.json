@@ -17,7 +17,8 @@
     }
   ],
   "action": {
-    "default_title": "Gigahiga Shortcuts"
+    "default_title": "Gigahiga Shortcuts",
+    "default_popup": "popup.html"
   }
 }
 

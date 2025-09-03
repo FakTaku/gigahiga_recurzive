@@ -27,6 +27,14 @@ function loadArtifact(appId) {
 }
 
 const server = http.createServer((req, res) => {
+  // Basic CORS for local testing and extension fetches
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    return res.end();
+  }
   const parsed = url.parse(req.url, true);
   const parts = (parsed.pathname || '/').split('/').filter(Boolean);
 

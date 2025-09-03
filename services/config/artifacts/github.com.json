@@ -1,0 +1,22 @@
+{
+  "appId": "github.com",
+  "version": "2025.01.0",
+  "intents": [
+    { "id": "palette.open", "title": "Open Command Palette" },
+    { "id": "nav.search", "title": "Search" }
+  ],
+  "scopes": [
+    {
+      "name": "global",
+      "routes": ["/*"],
+      "bindings": [
+        { "key": "/", "intent": "nav.search", "priority": 80, "source": "developer_default" },
+        { "key": "Ctrl+K", "intent": "palette.open", "platform": ["win","linux"], "priority": 90, "source": "developer_default" },
+        { "key": "Meta+K", "intent": "palette.open", "platform": ["mac"], "priority": 90, "source": "developer_default" }
+      ]
+    }
+  ],
+  "signature": "DEV_ONLY_UNSIGNED"
+}
+
+
