@@ -1,0 +1,1695 @@
+{
+  "url": "https://github.com",
+  "route": "https://github.com/",
+  "elements": [
+    {
+      "selector": null,
+      "label": "Skip to content",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Announcement",
+      "role": "alert",
+      "tag": "global-banner",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Register now",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Close",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Navigation Menu\n\n  \n    Toggle navigation\n  \n\n  \n    \n      \n          \n    \n            \n            \n  \n\n      \n\n     ",
+      "role": "banner",
+      "tag": "header",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Homepage",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Platform",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Solutions",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Resources",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Open Source",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Enterprise",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Pricing",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Search or jump to…",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign in",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign up",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign up for GitHub",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Try GitHub Copilot",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Pause",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "presentation",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "CodePlanCollaborateAutomateSecure",
+      "role": "tablist",
+      "tag": "div",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "presentation",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Code",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Plan",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Collaborate",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Automate",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Secure",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Code quickly and more securely with GitHub Copilot embedded throughout your workflows.",
+      "role": "region",
+      "tag": "p",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Pause animation",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "presentation",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Pause video",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "presentation",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Footnote 1",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Explore GitHub Copilot",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Read customer story",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Read industry report",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Automate any workflow",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Discover GitHub Actions",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Get up and running in seconds",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Check out GitHub Codespaces",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Build on the go",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Download GitHub Mobile",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Integrate the tools you love",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Visit GitHub Marketplace",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Explore GitHub Advanced Security",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Discover security campaigns",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Learn about Dependabot",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Read about secret scanning",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Footnote 2",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "all supported languages with Copilot Autofix",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Jump into GitHub Projects",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Keep track of your tasks",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Explore GitHub Issues",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Share ideas and ask questions",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Discover GitHub Discussions",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Review code changes together",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Learn about code review",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Fund open source projects",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Dive into GitHub Sponsors",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "By industryBy sizeBy use case",
+      "role": "tablist",
+      "tag": "div",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "presentation",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "By industry",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "By size",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "By use case",
+      "role": "tab",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "TechnologyFigma streamlines development and strengthens securityRead customer story",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "AutomotiveMercedes-Benz standardizes source code and automates onboardingRead customer story",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Financial servicesMercado Libre cuts coding time by 50%Read customer story",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Explore customer stories",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "View all solutions",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign up for GitHub",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Try GitHub Copilot",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Survey: The AI wave continues to grow on software development teams, 2024.",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Back to content",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Back to content",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Back to top",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Site-wide Links\n  \n    \n      \n        \n          \n        \n\n        Subscribe to our developer newsletter\n        Get t",
+      "role": "contentinfo",
+      "tag": "footer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Go to GitHub homepage",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Subscribe",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Features",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Enterprise",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Copilot",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "AI",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Security",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Pricing",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Team",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Resources",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Roadmap",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Compare GitHub",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Developer API",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Partners",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Education",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub CLI",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub Desktop",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub Mobile",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Docs",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Community Forum",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Professional Services",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Premium Support",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Skills",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Status",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Contact GitHub",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "About",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Why GitHub",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Customer stories",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Blog",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "The ReadME Project",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Careers",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Newsroom",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Inclusion",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Social Impact",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Shop",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Terms",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Privacy",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "(Updated 02/2024)02/2024",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sitemap",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "What is Git?",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Manage cookies",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Do not share my personal information",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub on LinkedIn",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Instagram\n        GitHub on Instagram",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Instagram",
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub on YouTube",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub on X",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "TikTok\n        GitHub on TikTok",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "TikTok",
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Twitch\n        GitHub on Twitch",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "Twitch",
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "GitHub’s organization on GitHub",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    },
+    {
+      "selector": null,
+      "label": "English - Select language",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://github.com/"
+    }
+  ],
+  "capturedAt": "2025-09-03T11:38:47.474Z"
+}

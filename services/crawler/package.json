@@ -1,0 +1,9 @@
+{
+  "name": "crawler",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "axe-core": "^4.9.1",
+    "playwright": "^1.55.0"
+  }
+}

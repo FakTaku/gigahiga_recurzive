@@ -35,10 +35,21 @@ packages/core
 services/config
   ├─ server.js
   └─ artifacts/mail.google.com.json
+services/suggester
+  └─ server.js
+services/crawler
+  ├─ package.json
+  └─ index.mjs
 extension
   ├─ manifest.json
   └─ content.js
 ```
+
+Crawler
+
+- Install deps: `cd services/crawler && npm i` (then `npx playwright install` if prompted).
+- Run: `node services/crawler/index.mjs https://mail.google.com/ services/crawler/snapshots/gmail.json`
+- Output is a JSON snapshot of actionable elements.
 
 Next steps
 
