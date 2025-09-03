@@ -1,0 +1,734 @@
+{
+  "url": "https://excalidraw.com/",
+  "route": "https://excalidraw.com/",
+  "elements": [
+    {
+      "selector": null,
+      "label": "All your data is saved locally in your browser.OpenCtrl+OHelp?Live collaboration...Sign upExport, preferences, languages",
+      "tag": "div",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "OpenCtrl+O",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Help?",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Live collaboration...",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign up",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Keep selected tool active after drawing",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Hand (panning tool) — H",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Selection",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "1",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "1",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Rectangle",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "2",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "2",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Diamond",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "3",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "3",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Ellipse",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "4",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "4",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Arrow",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "5",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "5",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Line",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "6",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "6",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Draw",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "7",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "7",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Text",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "8",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "8",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Insert image",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "9",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "9",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Eraser",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "0",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "0",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "More tools",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Live collaboration...",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Library",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "Library",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "Library",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Canvas actions100% Shortcuts & helpExit zen mode",
+      "role": "contentinfo",
+      "tag": "footer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Zoom out",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Reset zoom",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Zoom in",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Undo",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Redo",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Blog post on end-to-end encryption in Excalidraw",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": "Help",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "img",
+      "tag": "svg",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://excalidraw.com/"
+    }
+  ],
+  "capturedAt": "2025-09-03T17:44:26.422Z"
+}

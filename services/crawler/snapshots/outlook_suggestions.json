@@ -1,0 +1,20 @@
+{
+  "suggestions": [
+    {
+      "elementId": "create_a_microsoft_account",
+      "intent": "nav.profile",
+      "keys": [
+        "Alt+P"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "can’t_access_your_account?",
+      "intent": "nav.profile",
+      "keys": [
+        "Alt+P"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

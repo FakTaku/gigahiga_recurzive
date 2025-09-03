@@ -1,0 +1,74 @@
+{
+  "suggestions": [
+    {
+      "elementId": "all_your_data_is_saved_locally_in_your_browser.openctrl+ohelp?live_collaboration...sign_upexport,_preferences,_languages",
+      "intent": "nav.settings",
+      "keys": [
+        "Ctrl+,",
+        "Meta+,"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "keep_selected_tool_active_after_drawing",
+      "intent": "tool.select",
+      "keys": [
+        "v",
+        "1"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "hand_(panning_tool)_—_h",
+      "intent": "tool.pan",
+      "keys": [
+        "h"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "selection",
+      "intent": "tool.select",
+      "keys": [
+        "v",
+        "1"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "rectangle",
+      "intent": "tool.draw",
+      "keys": [
+        "r",
+        "2"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "text",
+      "intent": "tool.text",
+      "keys": [
+        "t",
+        "8"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "undo",
+      "intent": "action.undo",
+      "keys": [
+        "Ctrl+Z",
+        "Meta+Z"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "redo",
+      "intent": "action.redo",
+      "keys": [
+        "Meta+Shift+Z"
+      ],
+      "confidence": 0.9
+    }
+  ]
+}

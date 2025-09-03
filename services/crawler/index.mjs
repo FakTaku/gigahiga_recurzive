@@ -16,13 +16,16 @@ async function sendToSuggester(snapshot, appId) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        url: snapshot.url, // Add the website URL for LLM context
         appId,
         appCategory: 'development', // Default category
+        platform: process.platform === 'darwin' ? 'mac' : 'win',
         elements: snapshot.elements.map(el => ({
           id: el.label?.toLowerCase().replace(/\s+/g, '_') || 'unknown',
           label: el.label,
           role: el.role,
           tag: el.tag,
+          textNearby: el.textNearby,
           actions: el.actions
         })),
         reserved: { win: ['Alt+Tab'], mac: ['Meta+Q'] }

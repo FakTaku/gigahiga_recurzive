@@ -1,0 +1,22 @@
+{
+  "name": "gigahiga-suggester",
+  "version": "1.0.0",
+  "description": "AI-powered keyboard shortcut suggester service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "openai": "^4.0.0",
+    "dotenv": "^16.0.0"
+  },
+  "keywords": [
+    "ai",
+    "shortcuts",
+    "llm",
+    "automation"
+  ],
+  "author": "GigaHiga Team",
+  "license": "MIT"
+}
