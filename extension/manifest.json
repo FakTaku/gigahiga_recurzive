@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Gigahiga Shortcuts",
+  "version": "0.1.0",
+  "description": "Applies developer defaults and user overrides for keyboard shortcuts.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_title": "Gigahiga Shortcuts"
+  }
+}
+
+
