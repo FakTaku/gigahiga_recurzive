@@ -1,0 +1,358 @@
+{
+  "url": "https://youtube.com",
+  "route": "https://www.youtube.com/",
+  "elements": [
+    {
+      "selector": null,
+      "label": "Back\n    \n    \n      \n    \n    \n    \n  \n    \n  \n    \n    \n  \n  \n    \n    \n    \n    \n    \n    \n    \n  \n\n  \n  \n  \n  \n\n\n  \n",
+      "role": "banner",
+      "tag": "ytd-masthead",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Guide",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "YouTube Home",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Skip navigation",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Skip navigation",
+      "role": "text",
+      "tag": "span",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "search",
+      "tag": "yt-searchbox",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "combobox",
+      "tag": "input",
+      "actions": [
+        {
+          "type": "focus"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Search",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Search with your voice",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Settings",
+      "role": "button",
+      "tag": "button",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign in",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Sign in",
+      "role": "text",
+      "tag": "span",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Home\n  \n  \n    Home\n  \n\n\n  \n\n\n  \n  Shorts\n  \n  \n    Shorts\n  \n\n\n  \n\n\n  \n  Subscriptions\n  \n  \n    Subscriptions\n  \n\n\n  \n",
+      "role": "navigation",
+      "tag": "ytd-mini-guide-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Home",
+      "role": "tab",
+      "tag": "ytd-mini-guide-entry-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Home",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Shorts",
+      "role": "tab",
+      "tag": "ytd-mini-guide-entry-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Shorts",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Subscriptions",
+      "role": "tab",
+      "tag": "ytd-mini-guide-entry-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Subscriptions",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "You",
+      "role": "tab",
+      "tag": "ytd-mini-guide-entry-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "You",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "History",
+      "role": "tab",
+      "tag": "ytd-mini-guide-entry-renderer",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "History",
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": "Try searching to get started\n      \n      \n        Start watching videos to help us build a feed of videos that you'll l",
+      "role": "main",
+      "tag": "ytd-browse",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://www.youtube.com/"
+    },
+    {
+      "selector": null,
+      "label": null,
+      "role": "link",
+      "tag": "a",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den-GB%26next%3D%252Fsignin_passive%26feature%3Dpassive&hl=en-GB&ifkv=AdBytiMYOCoHSOTGcBBz1ZUpf0PIqQ9e3hPiD59vp06eB4tb-wxELEyiAMM6VzxPgB-JLJIII9VJig&passive=true&service=youtube&uilel=3&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-786860290%3A1756912238630082"
+    },
+    {
+      "selector": null,
+      "label": "Google",
+      "role": "img",
+      "tag": "span",
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "textNearby": "",
+      "_frameUrl": "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den-GB%26next%3D%252Fsignin_passive%26feature%3Dpassive&hl=en-GB&ifkv=AdBytiMYOCoHSOTGcBBz1ZUpf0PIqQ9e3hPiD59vp06eB4tb-wxELEyiAMM6VzxPgB-JLJIII9VJig&passive=true&service=youtube&uilel=3&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-786860290%3A1756912238630082"
+    }
+  ],
+  "capturedAt": "2025-09-03T15:10:42.125Z"
+}

@@ -82,26 +82,46 @@
     return e.ctrlKey && !e.metaKey;
   }
 
-  function onKeydown(e) {
-    if (paletteOpen) {
-      // While palette is open, ignore global shortcuts to avoid interference
-      return;
+  // --- Lightweight hotkeys-style binding registry ---
+  const __hk = { registry: new Map(), listenerAttached: false };
+  function hotkeysBind(combo, handler) {
+    const key = (combo || '').toLowerCase().trim();
+    if (!key) return;
+    __hk.registry.set(key, handler);
+    if (!__hk.listenerAttached) {
+      window.addEventListener('keydown', onHotkeyKeydown, true);
+      __hk.listenerAttached = true;
     }
+  }
+  function hotkeysUnbindAll() {
+    __hk.registry.clear();
+  }
+  function onHotkeyKeydown(e) {
+    const isPalette = matchesPalette(e);
+    if (paletteOpen && !isPalette) return;
     const combo = normalizeCombo(e);
-    const hit = effectiveIndex.get(combo);
-    if (hit) {
+    const handler = __hk.registry.get(combo);
+    if (handler) {
       e.preventDefault();
       e.stopPropagation();
-      dispatchIntent(hit.intent);
+      handler(e);
       return;
     }
-    if (matchesPalette(e)) {
+    if (isPalette) {
       e.preventDefault();
       e.stopPropagation();
-      // Placeholder: open a minimal palette stub
       showPalette();
-      return;
     }
+  }
+
+  function applyBindingsWithHotkeys() {
+    hotkeysUnbindAll();
+    for (const [combo, b] of effectiveIndex.entries()) {
+      hotkeysBind(combo, () => dispatchIntent(b.intent));
+    }
+    // Ensure palette toggle is always bound
+    const paletteCombo = isMac ? 'meta+k' : 'ctrl+k';
+    hotkeysBind(paletteCombo, () => showPalette());
   }
 
   function showPalette() {
@@ -209,6 +229,10 @@
     document.documentElement.appendChild(wrapper);
     input.focus();
     render('');
+    // Fetch AI suggestions on open (non-blocking)
+    try {
+      collectElementsAndSuggest().catch(() => {});
+    } catch (_) {}
     // nothing else
   }
 
@@ -249,12 +273,113 @@
   // Re-index on route changes for SPAs
   const mo = new MutationObserver(() => {
     indexBindings();
+    applyBindingsWithHotkeys();
   });
   mo.observe(document.documentElement, { subtree: true, childList: true });
-  window.addEventListener('hashchange', indexBindings);
+  window.addEventListener('hashchange', () => { indexBindings(); applyBindingsWithHotkeys(); });
 
   loadArtifactAndOverrides();
-  window.addEventListener('keydown', onKeydown, true);
+  // Initial apply after first index
+  applyBindingsWithHotkeys();
+
+  // --- Suggestions wiring ---
+  async function collectElementsAndSuggest() {
+    const payload = buildActionGraph();
+    if (!payload || !payload.elements || payload.elements.length === 0) return;
+    try {
+      const res = await fetch('http://localhost:8788/v1/suggest', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) return;
+      const data = await res.json();
+      // For now, just log suggestions; UI integration comes next
+      console.log('[gigahiga] suggestions', data);
+    } catch (_) {}
+  }
+
+  function buildActionGraph() {
+    try {
+      const appId = getDomainAppId();
+      const platform = isMac ? 'mac' : 'win';
+      const route = (location.pathname || '/') + (location.hash || '');
+      const elements = collectElements();
+      const reserved = { mac: ['Meta+Q'], win: ['Alt+Tab'] };
+      return { appId, platform, route, reserved, elements };
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function collectElements() {
+    const nodes = Array.from(document.querySelectorAll(
+      'a,button,input,textarea,select,[role],[onclick],[tabindex],.btn,.button'
+    ));
+    const items = [];
+    const isVisible = (el) => {
+      try {
+        const rect = el.getBoundingClientRect();
+        const style = window.getComputedStyle(el);
+        return !!(rect.width && rect.height) && style.visibility !== 'hidden' && style.display !== 'none';
+      } catch { return false; }
+    };
+    const getLabel = (el) => {
+      const aria = el.getAttribute('aria-label');
+      if (aria) return aria;
+      const labelledBy = el.getAttribute('aria-labelledby');
+      if (labelledBy) {
+        const lab = labelledBy.split(/\s+/)
+          .map(id => document.getElementById(id)?.textContent?.trim())
+          .filter(Boolean).join(' ');
+        if (lab) return lab;
+      }
+      const title = el.getAttribute('title');
+      if (title) return title;
+      const text = (el.textContent || '').trim();
+      if (text) return text.slice(0, 120);
+      return null;
+    };
+    const roleOf = (el) => el.getAttribute('role') || (el.tagName === 'BUTTON' ? 'button' : el.tagName === 'A' ? 'link' : undefined);
+
+    for (const el of nodes) {
+      if (!isVisible(el)) continue;
+      const label = getLabel(el);
+      const role = roleOf(el);
+      const actions = [];
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') actions.push({ type: 'focus' });
+      else actions.push({ type: 'click' });
+      const selector = buildStableSelector(el);
+      const elementId = (label || role || el.tagName.toLowerCase() || 'el')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .slice(0, 40);
+      items.push({ elementId, selector, role, label, actions });
+      if (items.length >= 200) break; // cap for perf
+    }
+    return items;
+  }
+
+  function buildStableSelector(el) {
+    // Prefer data-testid, aria, id, then class/tag path
+    const attr = (name) => el.getAttribute(name);
+    const prefer = [
+      'data-testid','data-test','data-qa','aria-label','aria-controls','id','name','title'
+    ];
+    for (const a of prefer) {
+      const v = attr(a);
+      if (v) {
+        const q = `[${a}=${JSON.stringify(v)}]`;
+        try { if (document.querySelector(q) === el) return q; } catch(_) {}
+      }
+    }
+    // fallback: tag.class path (shallow)
+    const tag = el.tagName.toLowerCase();
+    const cls = (el.className || '').toString().trim().split(/\s+/).filter(Boolean).slice(0, 2).join('.');
+    if (cls) return `${tag}.${cls}`;
+    return tag;
+  }
 
   function dispatchIntent(intent) {
     switch (intent) {

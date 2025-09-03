@@ -1,0 +1,865 @@
+{
+  "suggestions": [
+    {
+      "elementId": "skip_to_content",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "announcement",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "register_now",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "close",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "navigation_menu_toggle_navigation_",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "homepage",
+      "intent": "nav.home",
+      "keys": [
+        "Ctrl+H",
+        "Meta+H"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "platform",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "solutions",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "resources",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "open_source",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "enterprise",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "pricing",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "search_or_jump_to…",
+      "intent": "nav.search",
+      "keys": [
+        "/",
+        "Ctrl+K"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "sign_in",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "sign_up",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "sign_up_for_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "try_github_copilot",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "pause",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "codeplancollaborateautomatesecure",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "code",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "plan",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "collaborate",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "automate",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "secure",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "code_quickly_and_more_securely_with_github_copilot_embedded_throughout_your_workflows.",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "pause_animation",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "pause_video",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "footnote_1",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "explore_github_copilot",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "read_customer_story",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "read_industry_report",
+      "intent": "nav.repository",
+      "keys": [
+        "Ctrl+R",
+        "Meta+R"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "automate_any_workflow",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "discover_github_actions",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "get_up_and_running_in_seconds",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "check_out_github_codespaces",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "build_on_the_go",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "download_github_mobile",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "integrate_the_tools_you_love",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "visit_github_marketplace",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "explore_github_advanced_security",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "discover_security_campaigns",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "learn_about_dependabot",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "read_about_secret_scanning",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "footnote_2",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "all_supported_languages_with_copilot_autofix",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "jump_into_github_projects",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "keep_track_of_your_tasks",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "explore_github_issues",
+      "intent": "nav.issues",
+      "keys": [
+        "Ctrl+I",
+        "Meta+I"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "share_ideas_and_ask_questions",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "discover_github_discussions",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "review_code_changes_together",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "learn_about_code_review",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "fund_open_source_projects",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "dive_into_github_sponsors",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "by_industryby_sizeby_use_case",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "by_industry",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "by_size",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "by_use_case",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "technologyfigma_streamlines_development_and_strengthens_securityread_customer_story",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "automotivemercedes-benz_standardizes_source_code_and_automates_onboardingread_customer_story",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "financial_servicesmercado_libre_cuts_coding_time_by_50%read_customer_story",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "explore_customer_stories",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "view_all_solutions",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "unknown",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "sign_up_for_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "try_github_copilot",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "survey:_the_ai_wave_continues_to_grow_on_software_development_teams,_2024.",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "back_to_content",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "back_to_content",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "back_to_top",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "site-wide_links_subscribe_to_our_developer_newsletter_get_t",
+      "intent": "compose.open",
+      "keys": [
+        "Ctrl+N",
+        "Meta+N"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "go_to_github_homepage",
+      "intent": "nav.home",
+      "keys": [
+        "Ctrl+H",
+        "Meta+H"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "subscribe",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "features",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "enterprise",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "copilot",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "ai",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "security",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "pricing",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "team",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "resources",
+      "intent": "nav.code",
+      "keys": [
+        "Ctrl+Shift+C",
+        "Meta+Shift+C"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "roadmap",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "compare_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "developer_api",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "partners",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "education",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_cli",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_desktop",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_mobile",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "docs",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "community_forum",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "professional_services",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "premium_support",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "skills",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "status",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "contact_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "about",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "why_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "customer_stories",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "blog",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "the_readme_project",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "careers",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "newsroom",
+      "intent": "compose.open",
+      "keys": [
+        "Ctrl+N",
+        "Meta+N"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "inclusion",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "social_impact",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "shop",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "terms",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "privacy",
+      "intent": "nav.pull_requests",
+      "keys": [
+        "Ctrl+Shift+P",
+        "Meta+Shift+P"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "(updated_02/2024)02/2024",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "sitemap",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "what_is_git?",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "manage_cookies",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "do_not_share_my_personal_information",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_on_linkedin",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "instagram_github_on_instagram",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "instagram",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_on_youtube",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github_on_x",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "tiktok_github_on_tiktok",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "tiktok",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "twitch_github_on_twitch",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "twitch",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "github’s_organization_on_github",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    },
+    {
+      "elementId": "english_-_select_language",
+      "intent": "unknown",
+      "keys": [],
+      "confidence": 0.4
+    }
+  ]
+}
