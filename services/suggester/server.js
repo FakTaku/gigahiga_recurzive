@@ -1,5 +1,7 @@
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 const OpenAI = require('openai');
@@ -29,9 +31,21 @@ const browserReserved = {
 
 function createLLMPrompt(websiteUrl, elements, nativeShortcuts = []) {
   const domain = new URL(websiteUrl).hostname;
-  const elementsDesc = elements.slice(0, 50).map(el => // Limit to first 50 elements for better coverage
-    `- ${el.tag}${el.role ? ` (${el.role})` : ''}: "${el.label || 'unlabeled'}"${el.textNearby ? ` [nearby: "${el.textNearby.slice(0, 50)}..."]` : ''}${el.accessKey ? ` [accesskey: "${el.accessKey}"]` : ''}`
-  ).join('\n');
+  
+  // Handle both legacy and enhanced element formats
+  const elementsDesc = elements.slice(0, 50).map((el, idx) => {
+    // Enhanced format handling
+    if (el.labels && el.labels.primary) {
+      const interactions = el.interactions?.map(i => i.type).join(',') || 'click';
+      const context = el.domPath ? ` [path: ${el.domPath}]` : '';
+      const accessKey = el.attributes?.accessKey || el.accessKey;
+      return `- ${el.tag}${el.role ? ` (${el.role})` : ''}: "${el.labels.primary}"${context} [interactions: ${interactions}]${accessKey ? ` [accesskey: "${accessKey}"]` : ''}`;
+    }
+    // Legacy format handling  
+    else {
+      return `- ${el.tag}${el.role ? ` (${el.role})` : ''}: "${el.label || 'unlabeled'}"${el.textNearby ? ` [nearby: "${el.textNearby.slice(0, 50)}..."]` : ''}${el.accessKey ? ` [accesskey: "${el.accessKey}"]` : ''}`;
+    }
+  }).join('\n');
 
   // Format native shortcuts for the prompt
   const nativeShortcutsDesc = nativeShortcuts.length > 0 
@@ -165,10 +179,11 @@ function getHeuristicSuggestions(elements, nativeShortcuts = []) {
     }
   });
   
-  // Also check accesskey attributes on elements
+  // Also check accesskey attributes on elements (handle both formats)
   elements.forEach(el => {
-    if (el.accessKey) {
-      existingKeys.add(el.accessKey.toLowerCase());
+    const accessKey = el.accessKey || el.attributes?.accessKey;
+    if (accessKey) {
+      existingKeys.add(accessKey.toLowerCase());
     }
   });
 
@@ -176,9 +191,12 @@ function getHeuristicSuggestions(elements, nativeShortcuts = []) {
   console.log(`[suggester] Verified native keys:`, Array.from(verifiedKeys));
 
   return elements.map((el) => {
-    const label = (el.label || '').toLowerCase();
+    // Handle both enhanced and legacy formats
+    const label = (el.labels?.primary || el.label || '').toLowerCase();
     const role = (el.role || '').toLowerCase();
     const tag = (el.tag || '').toLowerCase();
+    const interactions = el.interactions || el.actions || [];
+    
     let intent = 'unknown';
     let keys = [];
 
@@ -277,7 +295,12 @@ function getHeuristicSuggestions(elements, nativeShortcuts = []) {
       }
     }
 
-    return { elementId: el.id, intent, keys };
+    // Generate element ID for both formats
+    const elementId = el.id || el.elementId || 
+                     (el.labels?.primary || el.label || '').toLowerCase().replace(/\s+/g, '_').slice(0, 50) || 
+                     `element_${el.index || Math.random().toString(36).substr(2, 9)}`;
+    
+    return { elementId, intent, keys, confidence: interactions.length > 1 ? 0.8 : 0.6 };
   }).filter(s => s.intent !== 'unknown');
 }
 
@@ -314,7 +337,7 @@ const server = http.createServer((req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type'
     });
     return res.end();
@@ -322,6 +345,161 @@ const server = http.createServer((req, res) => {
   
   const parsed = url.parse(req.url, true);
   const parts = (parsed.pathname || '/').split('/').filter(Boolean);
+  
+  // Handle static suggestion file requests
+  if (req.method === 'GET' && parts[0] === 'suggestions' && parts.length === 2) {
+    const filename = parts[1];
+    
+    // Security: only allow specific file patterns
+    if (!filename.match(/^[a-zA-Z0-9_]+_suggestions\.json$/)) {
+      res.writeHead(400, {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      });
+      return res.end(JSON.stringify({ error: 'Invalid filename format' }));
+    }
+    
+    // Path to the snapshots directory
+    const snapshotsPath = path.join(__dirname, '..', 'crawler', 'snapshots', filename);
+    
+    try {
+      if (!fs.existsSync(snapshotsPath)) {
+        res.writeHead(404, {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        });
+        return res.end(JSON.stringify({ error: 'Suggestions file not found' }));
+      }
+      
+      const fileContent = fs.readFileSync(snapshotsPath, 'utf8');
+      const suggestions = JSON.parse(fileContent);
+      
+      res.writeHead(200, {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      });
+      
+      console.log(`[suggester] Served ${filename} with ${suggestions.suggestions?.length || 0} suggestions`);
+      return res.end(fileContent);
+      
+    } catch (error) {
+      console.error(`[suggester] Error serving ${filename}:`, error.message);
+      res.writeHead(500, {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      });
+      return res.end(JSON.stringify({ error: 'Failed to read suggestions file' }));
+    }
+  }
+  
+  // Handle crawler trigger endpoint
+  if (req.method === 'POST' && parts[0] === 'v1' && parts[1] === 'crawl') {
+    let raw = '';
+    req.on('data', (c) => (raw += c));
+    req.on('end', async () => {
+      let payload = {};
+      try { 
+        payload = JSON.parse(raw || '{}'); 
+      } catch (e) {
+        return send(res, 400, { error: 'Invalid JSON' });
+      }
+      
+      const { url, mode = 'enhanced', options = {} } = payload;
+      
+      if (!url) {
+        return send(res, 400, { error: 'URL is required' });
+      }
+      
+      try {
+        console.log(`[suggester] Starting crawler for ${url} in ${mode} mode`);
+        
+        // Import and run the unified crawler
+        const { runUnifiedCrawler } = await import('../crawler/unified-crawler.mjs');
+        
+        // Generate output filename
+        const domain = new URL(url).hostname.replace(/[^a-zA-Z0-9]/g, '_');
+        const timestamp = Date.now();
+        const outputPath = path.join(__dirname, '..', 'crawler', 'snapshots', `${domain}_${mode}_${timestamp}.json`);
+        
+        // Configure crawler options
+        const crawlerOptions = {
+          mode,
+          headed: false, // Always headless from extension
+          suggest: true, // Always generate suggestions
+          waitMs: options.waitMs || 3000,
+          maxDepth: options.maxDepth || (mode === 'enhanced' ? 2 : 1),
+          maxInteractions: options.maxInteractions || (mode === 'enhanced' ? 8 : 5),
+          enableStateCrawling: options.enableStateCrawling !== false,
+          enableInteractionSimulation: options.enableInteractionSimulation !== false,
+          legacyFallback: true
+        };
+        
+        console.log(`[suggester] Crawler options:`, crawlerOptions);
+        
+        // Start crawler (non-blocking response)
+        const crawlPromise = runUnifiedCrawler(url, outputPath, crawlerOptions);
+        
+        // Return immediately with job info
+        const jobId = `${domain}_${mode}_${timestamp}`;
+        
+        // Store job status
+        global.crawlJobs = global.crawlJobs || new Map();
+        global.crawlJobs.set(jobId, {
+          id: jobId,
+          url,
+          mode,
+          status: 'running',
+          startTime: Date.now(),
+          outputPath
+        });
+        
+        // Handle crawler completion
+        crawlPromise.then((result) => {
+          console.log(`[suggester] Crawler completed for ${url}`);
+          global.crawlJobs.set(jobId, {
+            ...global.crawlJobs.get(jobId),
+            status: 'completed',
+            endTime: Date.now(),
+            result
+          });
+        }).catch((error) => {
+          console.error(`[suggester] Crawler failed for ${url}:`, error.message);
+          global.crawlJobs.set(jobId, {
+            ...global.crawlJobs.get(jobId),
+            status: 'failed',
+            endTime: Date.now(),
+            error: error.message
+          });
+        });
+        
+        return send(res, 202, { 
+          jobId,
+          status: 'started',
+          message: `Crawler started for ${url} in ${mode} mode`,
+          estimatedDuration: mode === 'enhanced' ? '30-60 seconds' : 
+                           mode === 'hybrid' ? '45-90 seconds' : '10-20 seconds'
+        });
+        
+      } catch (error) {
+        console.error('[suggester] Crawler start failed:', error);
+        return send(res, 500, { error: `Failed to start crawler: ${error.message}` });
+      }
+    });
+    return;
+  }
+  
+  // Handle crawler job status endpoint
+  if (req.method === 'GET' && parts[0] === 'v1' && parts[1] === 'crawl' && parts[2]) {
+    const jobId = parts[2];
+    global.crawlJobs = global.crawlJobs || new Map();
+    
+    const job = global.crawlJobs.get(jobId);
+    if (!job) {
+      return send(res, 404, { error: 'Job not found' });
+    }
+    
+    return send(res, 200, job);
+  }
   
   if (req.method === 'POST' && parts[0] === 'v1' && parts[1] === 'suggest') {
     let raw = '';

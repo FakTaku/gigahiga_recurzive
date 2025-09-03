@@ -2,6 +2,11 @@
   "name": "crawler",
   "private": true,
   "type": "module",
+  "scripts": {
+    "crawl": "node index.mjs",
+    "crawl-enhanced": "node enhanced-crawler.mjs",
+    "crawl-unified": "node unified-crawler.mjs"
+  },
   "dependencies": {
     "axe-core": "^4.9.1",
     "playwright": "^1.55.0"

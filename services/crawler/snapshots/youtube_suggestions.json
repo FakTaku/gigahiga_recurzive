@@ -1,0 +1,76 @@
+{
+  "suggestions": [
+    {
+      "elementId": "search_youtube",
+      "intent": "nav.search",
+      "keys": [
+        "/",
+        "Alt+S"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "play_pause_video",
+      "intent": "media.playpause",
+      "keys": [
+        "k",
+        "Space"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "fullscreen_video",
+      "intent": "media.fullscreen",
+      "keys": [
+        "f",
+        "Alt+F"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "skip_forward",
+      "intent": "media.skip_forward",
+      "keys": [
+        "l",
+        "ArrowRight"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "skip_backward",
+      "intent": "media.skip_backward",
+      "keys": [
+        "j",
+        "ArrowLeft"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "volume_up",
+      "intent": "media.volume_up",
+      "keys": [
+        "ArrowUp",
+        "+"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "volume_down",
+      "intent": "media.volume_down",
+      "keys": [
+        "ArrowDown",
+        "-"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "elementId": "home_youtube",
+      "intent": "nav.home",
+      "keys": [
+        "Alt+H",
+        "h"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

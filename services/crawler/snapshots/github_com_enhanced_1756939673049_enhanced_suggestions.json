@@ -1,0 +1,40 @@
+{
+  "suggestions": [
+    {
+      "elementId": "homepage",
+      "intent": "nav.home",
+      "keys": [
+        "Alt+H",
+        "h"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "go_to_github_homepage",
+      "intent": "nav.home",
+      "keys": [
+        "Alt+H",
+        "h"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "newsroom",
+      "intent": "compose.open",
+      "keys": [
+        "Alt+N",
+        "n"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "search_or_jump_to…",
+      "intent": "nav.search",
+      "keys": [
+        "Alt+S",
+        "Ctrl+Shift+F"
+      ],
+      "confidence": 0.8
+    }
+  ]
+}

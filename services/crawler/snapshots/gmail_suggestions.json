@@ -1,0 +1,76 @@
+{
+  "suggestions": [
+    {
+      "elementId": "search_mail",
+      "intent": "nav.search",
+      "keys": [
+        "/",
+        "Alt+S"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "compose_email",
+      "intent": "compose.open",
+      "keys": [
+        "c",
+        "Alt+N"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "inbox",
+      "intent": "nav.home",
+      "keys": [
+        "g+i",
+        "Alt+H"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "send_email",
+      "intent": "message.send",
+      "keys": [
+        "Ctrl+Enter",
+        "Meta+Enter"
+      ],
+      "confidence": 0.9
+    },
+    {
+      "elementId": "reply",
+      "intent": "message.reply",
+      "keys": [
+        "r",
+        "Alt+R"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "forward",
+      "intent": "message.forward",
+      "keys": [
+        "f",
+        "Alt+F"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "archive",
+      "intent": "action.archive",
+      "keys": [
+        "e",
+        "Alt+A"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "elementId": "delete_email",
+      "intent": "action.delete",
+      "keys": [
+        "#",
+        "Delete"
+      ],
+      "confidence": 0.7
+    }
+  ]
+}
