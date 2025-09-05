@@ -3,7 +3,7 @@
     <div style="display: inline-block;">
         <h2 style="display: inline-block; vertical-align: middle; margin-top: 0;">GIGAHIGA_RECURZIVE</h2>
         <p>
-	<em><code>❯ REPLACE-ME</code></em>
+	<em><code>❯ Web Automation & Testing Framework with AI Suggestions</code></em>
 </p>
         <p>
 	<img src="https://img.shields.io/github/license/FakTaku/gigahiga_recurzive?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
@@ -45,13 +45,13 @@
 
 ##  Overview
 
-<code>❯ REPLACE-ME</code>
+<code>❯ A comprehensive web automation framework featuring browser extension integration, AI-powered suggestion system, and Playwright-based crawling capabilities for testing and monitoring web applications.</code>
 
 ---
 
 ##  Features
 
-<code>❯ REPLACE-ME</code>
+<code>❯ Browser extension for real-time interaction monitoring | AI-powered suggestion engine for test optimization | Playwright-based web crawling | Configurable site profiles | Snapshot testing capabilities | Cross-platform compatibility</code>
 
 ---
 
@@ -91,19 +91,19 @@
 			<table>
 			<tr>
 				<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/extension/popup.html'>popup.html</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td><code>❯ Browser extension popup interface</code></td>
 			</tr>
 			<tr>
 				<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/extension/popup.js'>popup.js</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td><code>❯ Popup JavaScript logic and event handlers</code></td>
 			</tr>
 			<tr>
 				<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/extension/content.js'>content.js</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td><code>❯ Content script for page interaction monitoring</code></td>
 			</tr>
 			<tr>
 				<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/extension/manifest.json'>manifest.json</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td><code>❯ Chrome extension manifest configuration</code></td>
 			</tr>
 			</table>
 		</blockquote>
@@ -120,11 +120,11 @@
 							<table>
 							<tr>
 								<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/packages/core/src/schema.ts'>schema.ts</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
+								<td><code>❯ TypeScript schema definitions for data structures</code></td>
 							</tr>
 							<tr>
 								<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/packages/core/src/resolver.ts'>resolver.ts</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
+								<td><code>❯ Data resolution and transformation utilities</code></td>
 							</tr>
 							</table>
 						</blockquote>
@@ -139,7 +139,7 @@
 			<table>
 			<tr>
 				<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/package-lock.json'>package-lock.json</a></b></td>
-				<td><code>❯ REPLACE-ME</code></td>
+				<td><code>❯ NPM package lock file for services</code></td>
 			</tr>
 			</table>
 			<details>
@@ -148,7 +148,7 @@
 					<table>
 					<tr>
 						<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/config/server.js'>server.js</a></b></td>
-						<td><code>❯ REPLACE-ME</code></td>
+						<td><code>❯ Configuration server for managing site profiles</code></td>
 					</tr>
 					</table>
 					<details>
@@ -157,11 +157,11 @@
 							<table>
 							<tr>
 								<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/config/artifacts/mail.google.com.json'>mail.google.com.json</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
+								<td><code>❯ Gmail site configuration profile</code></td>
 							</tr>
 							<tr>
 								<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/config/artifacts/github.com.json'>github.com.json</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
+								<td><code>❯ GitHub site configuration profile</code></td>
 							</tr>
 							</table>
 						</blockquote>
@@ -174,15 +174,15 @@
 					<table>
 					<tr>
 						<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/package-lock.json'>package-lock.json</a></b></td>
-						<td><code>❯ REPLACE-ME</code></td>
+						<td><code>❯ NPM package lock file for crawler service</code></td>
 					</tr>
 					<tr>
 						<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/index.mjs'>index.mjs</a></b></td>
-						<td><code>❯ REPLACE-ME</code></td>
+						<td><code>❯ Main crawler service entry point</code></td>
 					</tr>
 					<tr>
 						<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/package.json'>package.json</a></b></td>
-						<td><code>❯ REPLACE-ME</code></td>
+						<td><code>❯ Crawler service package configuration</code></td>
 					</tr>
 					</table>
 					<details>
@@ -191,7 +191,7 @@
 							<table>
 							<tr>
 								<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/.package-lock.json'>.package-lock.json</a></b></td>
-								<td><code>❯ REPLACE-ME</code></td>
+								<td><code>❯ Internal package lock file</code></td>
 							</tr>
 							</table>
 							<details>
@@ -200,31 +200,31 @@
 									<table>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/cli.js'>cli.js</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ Playwright Core CLI interface</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/ThirdPartyNotices.txt'>ThirdPartyNotices.txt</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ Third-party license notices</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/index.mjs'>index.mjs</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ Playwright Core ESM entry point</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/NOTICE'>NOTICE</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ License notice file</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/browsers.json'>browsers.json</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ Browser configuration data</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/index.d.ts'>index.d.ts</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ TypeScript definitions</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/index.js'>index.js</a></b></td>
-										<td><code>❯ REPLACE-ME</code></td>
+										<td><code>❯ Playwright Core main entry point</code></td>
 									</tr>
 									<tr>
 										<td><b><a href='https://github.com/FakTaku/gigahiga_recurzive/blob/master/services/crawler/node_modules/playwright-core/package.json'>package.json</a></b></td>
